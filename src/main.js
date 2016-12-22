@@ -2,6 +2,9 @@
 /* 加载css */
 require('../css/main.less');    // 加载CSS文件
 
+let loader = require('./bind');
+console.log(loader);
+
 /* 内容区模块代码 */
 var ContentMode = React.createClass({
         render: function(){

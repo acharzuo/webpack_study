@@ -48,6 +48,9 @@
 	/* 加载css */
 	__webpack_require__(1);    // 加载CSS文件
 
+	let loader = __webpack_require__(5);
+	console.log(loader);
+
 	/* 内容区模块代码 */
 	var ContentMode = React.createClass({displayName: "ContentMode",
 	        render: function(){
@@ -422,6 +425,14 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	// es6的语法 
+	let LOADER = true; 
+	module.exports = LOADER;
 
 /***/ }
 /******/ ]);
