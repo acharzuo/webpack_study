@@ -2,6 +2,8 @@
 /* 加载css */
 require('../css/main.less');    // 加载CSS文件
 
+require("./module1");
+
 let loader = require('./bind');
 console.log(loader);
 
