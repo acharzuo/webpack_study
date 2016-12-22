@@ -1,0 +1,19 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "a learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "achar <zuolifeng@sina.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "jsx-loader": "^0.13.2",
+    "style-loader": "^0.13.1"
+  }
+}
