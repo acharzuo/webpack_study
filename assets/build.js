@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/build2/";
+/******/ 	__webpack_require__.p = "/assets/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,59 +44,40 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
+	
 	/* 加载css */
-	__webpack_require__(1); // 加载CSS文件
+	__webpack_require__(1);    // 加载CSS文件
 
-	var loader = __webpack_require__(5);
+	let loader = __webpack_require__(5);
 	console.log(loader);
 
 	/* 内容区模块代码 */
-	var ContentMode = React.createClass({
-	    displayName: 'ContentMode',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'ContentMode' },
-	            React.createElement(
-	                'div',
-	                { 'class': 'contents' },
-	                this.props.contents
-	            ),
-	            this.props.children
-	        );
-	    }
+	var ContentMode = React.createClass({displayName: "ContentMode",
+	        render: function(){
+	            return (
+	                React.createElement("div", {className: "ContentMode"}, 
+	                    React.createElement("div", {class: "contents"}, this.props.contents), 
+	                    this.props.children
+	                )
+	            )
+	        }
 	});
 	/* 页面div封装 上面三个模块 */
-	var Page = React.createClass({
-	    displayName: 'Page',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'homepage' },
-	            React.createElement(
-	                ContentMode,
-	                { contents: 'longen' },
-	                'this is one comment'
-	            ),
-	            React.createElement(
-	                ContentMode,
-	                { contents: 'longen2' },
-	                'this is two comment'
-	            ),
-	            React.createElement(
-	                ContentMode,
-	                { contents: 'eeee' },
-	                ' 3333333999999 '
+	var Page = React.createClass({displayName: "Page",
+	    render: function(){
+	        return (
+	            React.createElement("div", {className: "homepage"}, 
+	                React.createElement(ContentMode, {contents: "longen"}, "this is one comment"), 
+	                React.createElement(ContentMode, {contents: "longen2"}, "this is two comment"), 
+	                React.createElement(ContentMode, {contents: "eeee"}, " 3333333 ")
 	            )
-	        );
-	    }
+	            )
+	        }
 	});
 	/* 初始化到content容器内 */
-	React.render(React.createElement(Page, null), document.getElementById("content"));
+	React.render(
+	       React.createElement(Page,null),document.getElementById("content")
+	);
 
 /***/ },
 /* 1 */
@@ -142,22 +123,20 @@
 /* 3 */
 /***/ function(module, exports) {
 
-	"use strict";
-
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
 		Author Tobias Koppers @sokra
 	*/
 	// css base code, injected by the css-loader
-	module.exports = function () {
+	module.exports = function() {
 		var list = [];
 
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
-			for (var i = 0; i < this.length; i++) {
+			for(var i = 0; i < this.length; i++) {
 				var item = this[i];
-				if (item[2]) {
+				if(item[2]) {
 					result.push("@media " + item[2] + "{" + item[1] + "}");
 				} else {
 					result.push(item[1]);
@@ -167,23 +146,25 @@
 		};
 
 		// import a list of modules into the list
-		list.i = function (modules, mediaQuery) {
-			if (typeof modules === "string") modules = [[null, modules, ""]];
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
 			var alreadyImportedModules = {};
-			for (var i = 0; i < this.length; i++) {
+			for(var i = 0; i < this.length; i++) {
 				var id = this[i][0];
-				if (typeof id === "number") alreadyImportedModules[id] = true;
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
 			}
-			for (i = 0; i < modules.length; i++) {
+			for(i = 0; i < modules.length; i++) {
 				var item = modules[i];
 				// skip already imported module
 				// this implementation is not 100% perfect for weird media query combinations
 				//  when a module is imported multiple times with different media queries.
 				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if (mediaQuery && !item[2]) {
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
 						item[2] = mediaQuery;
-					} else if (mediaQuery) {
+					} else if(mediaQuery) {
 						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
 					}
 					list.push(item);
@@ -192,6 +173,7 @@
 		};
 		return list;
 	};
+
 
 /***/ },
 /* 4 */
@@ -449,13 +431,13 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	"use strict";
-
 	// es6的语法 
-	var LOADER = true;
+	let LOADER = true; 
 
 	console.log("es6的语法");
 	module.exports = LOADER;
+
+
 
 /***/ }
 /******/ ]);

@@ -23,6 +23,7 @@ var Page = React.createClass({
             <div className="homepage">
                 <ContentMode  contents ="longen">this is one comment</ContentMode >
                 <ContentMode  contents ="longen2">this is two comment</ContentMode >
+                <ContentMode contents = "eeee"> 3333333999999 </ContentMode >
             </div>
             )
         }
