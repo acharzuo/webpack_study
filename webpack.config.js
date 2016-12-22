@@ -1,3 +1,5 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: "./src/main.js",
   output: {
@@ -9,7 +11,8 @@ module.exports = {
     loaders: [
        //.css 文件使用 style-loader 和 css-loader 来处理
       { test: /\.css$/, loader: "style!css" },
-      { test: /\.less$/, loader: "style!css!less" },
+      { test: /\.less$/, 
+        loader: ExtractTextPlugin.extract('css?sourceMap!' + 'less?sourceMap') },
 
       //.js 文件使用 jsx-loader 来编译处理
       { test: /\.js$/,    loader: "jsx-loader" },
@@ -34,5 +37,7 @@ module.exports = {
         c : 'js/assets/c.js'
     }
   },
-  plugins: []
+  plugins: [
+    new ExtractTextPlugin('styles.css')
+  ]
 };
